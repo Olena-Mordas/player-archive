@@ -12,7 +12,7 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPlayeData(playerName:string):Observable<PalyerData>{
+  getPlayerData(playerName:string):Observable<PalyerData>{
     return this.httpClient.get<PalyerData>(this.playerDataURL+'/'+playerName+'.json');
   }
 }
