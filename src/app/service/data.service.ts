@@ -33,7 +33,6 @@ export class DataService {
         }
         console.log(errorMessage);
         return throwError(errorMessage);
-    }
+  }
 
-  
 }

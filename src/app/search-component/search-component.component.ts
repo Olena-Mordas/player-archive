@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../service/data.service';
+import { Component } from '@angular/core';
 import { PalyerData } from '../model/player-data';
 import { PlayerProfile } from '../model/player-profile';
+import { DataService } from '../service/data.service';
 import { ProfileService } from '../service/profile.service';
-import { catchError, tap} from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs'; 
 
 
 @Component({
