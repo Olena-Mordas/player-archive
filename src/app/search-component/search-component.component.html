@@ -1,0 +1,14 @@
+<h4> Search </h4>
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-4">
+            <label for="query">Enter Player's Name</label>
+            <input type="text"class="form-control col-4 align-self-start" placeholder="Search..." #query>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" (click)="clickSearch(query.value)">Go</button>
+        </div>
+    </div>
+</div>
