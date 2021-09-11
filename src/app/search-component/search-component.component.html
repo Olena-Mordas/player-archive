@@ -14,3 +14,7 @@
 </div>
 
 <h4 *ngIf="showAnavailableMessage" class="alert alert-info unavailable-msg" >Player {{query.value}} is not available</h4>
+
+<ng-container *ngIf="playerProfile && !showAnavailableMessage">
+    <player-profile [player]="playerProfile"></player-profile>
+</ng-container>

@@ -1,0 +1,21 @@
+
+<div class="player-card-container">
+  <h4>Player Details</h4>
+
+
+  <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{player?.profile?.picture}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Player Details</h5>
+        <div class="card-text">
+          <div class="profile-id">ID: {{player?.id}}</div>
+          <div class="isActive">Active: true</div>
+      <br>
+          <div class="age">Age: {{player?.profile?.age}}</div>
+          <div class="role">Role: {{player?.profile?.role}}</div>
+          <div class="team">Team: {{player?.profile?.team}}</div>
+        </div>
+        
+      </div>
+  </div>
+</div>

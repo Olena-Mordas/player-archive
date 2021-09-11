@@ -3,13 +3,17 @@ import { DataService } from '../service/data.service';
 import { PalyerData } from '../model/player-data';
 import { PlayerProfile } from '../model/player-profile';
 import { ProfileService } from '../service/profile.service';
+import { catchError, tap} from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs'; 
+
 
 @Component({
   selector: 'search-component',
   templateUrl: './search-component.component.html',
   styleUrls: ['./search-component.component.scss']
 })
-export class SearchComponentComponent implements OnInit {
+export class SearchComponentComponent {
 
   playerData: PalyerData;
   playerProfile: PlayerProfile;
@@ -19,27 +23,34 @@ export class SearchComponentComponent implements OnInit {
     private playerDataService: DataService,
     private profileService: ProfileService) { }
 
-  ngOnInit(): void {
-  }
-
+ 
   clickSearch(searchInput: string){
+    this.showAnavailableMessage = false;
     this.playerDataService.getPlayerData(searchInput)
-      .subscribe(
-        (data:PalyerData)=>{
+      .subscribe((data:PalyerData)=>{
           this.playerData = data;
           if(this.playerData.active==='true'){
             this.profileService.getPlayerProfile(this.playerData['profile-id'])
               .subscribe(
                 (profile:PlayerProfile)=>{
                   this.playerProfile = {...profile};
-                  console.log('x');
                 },
                 err => console.log(err), //TODO
               )
           }
           else this.showAnavailableMessage = true;
         },
-        err => console.log(err), //TODO
+        err=>this.handleError(err)
       )
   }
+
+
+  handleError(err: String): void {
+    // check error code and display the message
+    if(err.split(" ")[2]==="403"){
+      this.showAnavailableMessage = true;
+    }
+    console.log(err);
+  }
+
 }

@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { SearchComponentComponent } from './search-component/search-component.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PlayerProfileComponent } from './player-profile/player-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponentComponent
+    SearchComponentComponent,
+    PlayerProfileComponent
   ],
   imports: [
     BrowserModule,
