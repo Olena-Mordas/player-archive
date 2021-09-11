@@ -1,5 +1,5 @@
 export interface PalyerData{
-    id: number;
+    id: string;
     active: string;
     'profile-id': string;
 
