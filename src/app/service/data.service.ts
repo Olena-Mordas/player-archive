@@ -13,6 +13,7 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // call endpoint to get the data for provided player
   getPlayerData(playerName: string): Observable<PalyerData> {
     return this.httpClient.get<PalyerData>(this.playerDataURL + '/' + playerName + '.json')
       .pipe(

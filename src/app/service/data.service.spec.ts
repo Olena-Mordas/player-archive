@@ -25,6 +25,7 @@ describe('DataService', () => {
   });
 
   it('should return data for fabio', () => {
+    // check if data is returned as expected for active player
     const mock_data: PalyerData = {
       id: "fabio",
       active: "true",
@@ -35,15 +36,18 @@ describe('DataService', () => {
       expect(data).toEqual(mock_data);
     })
 
+    //mock the call
     const testRequest = httpTestingController.expectOne('https://web-sandbox.onefootball.com/assignments/player/data/fabio.json');
- 
     testRequest.flush(mock_data);
   });
 
   it('should return 403 for francesco',()=>{
+    // check if the returned status is 403
     const mockErrorResponse = { status: 403, statusText: 'Forbidden' };
+    
     let response: any;
     let errResponse: any;
+
     service.getPlayerData('francesco').subscribe(data => 
       response = data, 
       err =>{

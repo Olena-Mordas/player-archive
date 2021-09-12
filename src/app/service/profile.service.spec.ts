@@ -26,15 +26,14 @@ describe('ProfileService', () => {
   });
 
   it('should return profile', () => {
+    // check of the returned data is as expected 
     const mock_data = json_data;
-    //const profile: PlayerProfile = JSON.parse(mock_data);
 
     service.getPlayerProfile('profile-111.json').subscribe(data =>{
       expect(data).toEqual(mock_data);
     })
 
     const testRequest = httpTestingController.expectOne('https://web-sandbox.onefootball.com/assignments/player/profile/profile-111.json');
- 
     testRequest.flush(mock_data);
   });
 });

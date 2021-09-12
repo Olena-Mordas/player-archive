@@ -5,7 +5,12 @@
     <div class="row">
         <div class="col-md-4">
             <label for="query">Enter Player's Name</label>
-            <input type="text"class="form-control col-4 align-self-start" placeholder="Search..." #query>
+            <input 
+                type="text"
+                class="form-control col-4 align-self-start" 
+                placeholder="Search..." 
+                onfocus="this.value=''"
+                #query>
         </div>
         <div class="col-md-2">
             <button class="btn btn-primary" (click)="clickSearch(query.value)">Go</button>
@@ -13,8 +18,8 @@
     </div>
 </div>
 
-<h4 *ngIf="showAnavailableMessage" class="alert alert-info unavailable-msg" >Player {{query.value}} is not available</h4>
+<h4 *ngIf="showUnavailableMessage" class="alert alert-info unavailable-msg" >Player {{query.value}} is not available</h4>
 
-<ng-container *ngIf="playerProfile && !showAnavailableMessage">
+<ng-container *ngIf="playerProfile && !showUnavailableMessage">
     <player-profile [player]="playerProfile"></player-profile>
 </ng-container>

@@ -13,6 +13,7 @@ export class ProfileService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // call endpoint to get the data for provided player
   getPlayerProfile(profileId:string):Observable<PlayerProfile>{
     return this.httpClient.get<PlayerProfile>(this.profileUrl+'/'+profileId)
     .pipe(
